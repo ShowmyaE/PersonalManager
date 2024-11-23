@@ -18,7 +18,7 @@ function App() {
 
   const fetchNotes = (query) => {
     axios
-      .get("http://localhost:5006/notesFilter", {
+      .get("https://backendpersonal.onrender.com/notesFilter", {
         params: { search: query },
       })
       .then((response) => setTasks(response.data))
@@ -26,7 +26,7 @@ function App() {
   }
 
   const getdata = () => {
-    axios.get("http://localhost:5006/notes").then((response) => {
+    axios.get("https://backendpersonal.onrender.com/notes").then((response) => {
       console.log("TEST", response.data)
       setTasks(response.data);
     })
@@ -37,7 +37,7 @@ function App() {
   const addTask = (newNote) => {
     if (editingNote) {
       axios
-        .put(`http://localhost:5006/notes/${editingNote.id}`, newNote)
+        .put(`https://backendpersonal.onrender.com/${editingNote.id}`, newNote)
         .then(() => {
           setTasks(tasks.map((note) => (note.id === editingNote.id ? newNote : note)));
           setEditingNote(null);
@@ -46,7 +46,7 @@ function App() {
         .catch((error) => console.error("Error fetching notes:", error));
     } else {
       // Add new note
-      axios.post("http://localhost:5006/notes", newNote).then((response) => {
+      axios.post("https://backendpersonal.onrender.com/notes", newNote).then((response) => {
         setTasks([...tasks, response.data]);
         getdata()
       })
@@ -55,7 +55,7 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    axios.delete(`http://localhost:5006/notes/${id}`).then(() => {
+    axios.delete(`https://backendpersonal.onrender.com/notes/${id}`).then(() => {
       setTasks(tasks.filter((note) => note.id !== id));
     })
       .catch((error) => console.error("Error fetching notes:", error));
@@ -64,7 +64,7 @@ function App() {
     console.log("UPDATE", noteEdit)
     setEditingNote(noteEdit);
     axios
-      .put(`http://localhost:5006/notes/${noteEdit.id}`, noteEdit)
+      .put(`https://backendpersonal.onrender.com/${noteEdit.id}`, noteEdit)
       .then(() => {
         setTasks(tasks.map((note) => (note.id === noteEdit.id ? noteEdit : note)));
         setEditingNote(null);
