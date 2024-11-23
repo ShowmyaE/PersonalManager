@@ -1,0 +1,103 @@
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px auto;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .task-item {
+    padding: 15px;
+  }
+  
+  .task-item h5 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .task-item p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+  
+  /* Spacing for buttons */
+  button.me-2 {
+    margin-right: 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .task-item h5 {
+      font-size: 1.2rem;
+    }
+  
+    .task-item p {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 0.85rem;
+      padding: 6px 10px;
+    }
+  
+    .btn-danger {
+      margin-top: 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      margin: 5px;
+    }
+  
+    .task-item h5 {
+      font-size: 1rem;
+    }
+  
+    .task-item p {
+      font-size: 0.8rem;
+    }
+  
+    button {
+      font-size: 0.8rem;
+      padding: 5px 8px;
+    }
+  }
+  .task-item {
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .task-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn {
+    border-radius: 0.25rem;
+  }
+  
+  .badge {
+    font-size: 0.9rem;
+    padding: 0.3em 0.5em;
+  }
