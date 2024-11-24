@@ -37,7 +37,7 @@ function App() {
   const addTask = (newNote) => {
     if (editingNote) {
       axios
-        .put(`https://backendpersonal.onrender.com/${editingNote.id}`, newNote)
+        .put(`https://backendpersonal.onrender.com/notes/${editingNote.id}`, newNote)
         .then(() => {
           setTasks(tasks.map((note) => (note.id === editingNote.id ? newNote : note)));
           setEditingNote(null);
@@ -64,7 +64,7 @@ function App() {
     console.log("UPDATE", noteEdit)
     setEditingNote(noteEdit);
     axios
-      .put(`https://backendpersonal.onrender.com/${noteEdit.id}`, noteEdit)
+      .put(`https://backendpersonal.onrender.com/notes/${noteEdit.id}`, noteEdit)
       .then(() => {
         setTasks(tasks.map((note) => (note.id === noteEdit.id ? noteEdit : note)));
         setEditingNote(null);
