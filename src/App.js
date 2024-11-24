@@ -13,24 +13,30 @@ function App() {
 
   useEffect(() => {
     getdata()
-    fetchNotes(searchQuery);
-  }, [searchQuery, editingNote]);
+  }, [searchQuery]);
 
   const fetchNotes = (query) => {
     axios
       .get("https://backendpersonal.onrender.com/notesFilter", {
         params: { search: query },
       })
-      .then((response) => setTasks(response.data))
+      .then((response) => {
+          setTasks(response.data)
+        })
       .catch((error) => console.error("Error fetching notes:", error));
   }
 
   const getdata = () => {
-    axios.get("https://backendpersonal.onrender.com/notes").then((response) => {
-      console.log("TEST", response.data)
-      setTasks(response.data);
-    })
-      .catch((error) => console.error("Error fetching notes:", error));
+    if(searchQuery && searchQuery != '') {
+      fetchNotes(searchQuery)
+    }
+    else {
+      axios.get("https://backendpersonal.onrender.com/notes").then((response) => {
+        setTasks(response.data);
+      })
+        .catch((error) => console.error("Error fetching notes:", error));
+    }
+
   };
 
 
